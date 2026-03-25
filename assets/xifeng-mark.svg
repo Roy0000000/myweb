@@ -1,0 +1,28 @@
+<svg width="760" height="760" viewBox="0 0 760 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="760" height="760" rx="52" fill="url(#paint0_radial)"/>
+  <path d="M199 252C221.667 200.333 273.2 122.6 355.2 142.2C437.2 161.8 420.033 259.7 369.2 301.2C318.367 342.7 296 384.5 320.5 448.5" stroke="#5B8ED5" stroke-width="18" stroke-linecap="round"/>
+  <path d="M433 211C466.667 198.333 535.3 203.6 541.3 278.4C547.3 353.2 505.133 347.9 486.5 310.5" stroke="#5B8ED5" stroke-width="18" stroke-linecap="round"/>
+  <path d="M285 385V515C285 525.493 276.493 534 266 534H232" stroke="#5B8ED5" stroke-width="18" stroke-linecap="round"/>
+  <path d="M366 430V514" stroke="#5B8ED5" stroke-width="18" stroke-linecap="round"/>
+  <path d="M412 430V514" stroke="#5B8ED5" stroke-width="18" stroke-linecap="round"/>
+  <path d="M405 590C431.5 622.5 465.5 621.5 494.5 585" stroke="#5B8ED5" stroke-width="18" stroke-linecap="round"/>
+  <path d="M233 531C193.833 529.5 148.2 548.4 144.2 608.4C140.2 668.4 213.533 681.733 250.2 676.4H489.5C535.167 676.4 593.8 666.4 607 622C620.2 577.6 586.167 540.167 568.5 527.5" stroke="#5B8ED5" stroke-width="18" stroke-linecap="round"/>
+  <path d="M543.5 314V422" stroke="#5B8ED5" stroke-width="18" stroke-linecap="round"/>
+  <path d="M223 171L267 123" stroke="#7AC458" stroke-width="18" stroke-linecap="round"/>
+  <path d="M531 138L556 107" stroke="#FFE44F" stroke-width="18" stroke-linecap="round"/>
+  <path d="M605 191L629 164" stroke="#F8A3C4" stroke-width="18" stroke-linecap="round"/>
+  <path d="M94 341L126 303" stroke="#4968D8" stroke-width="18" stroke-linecap="round"/>
+  <path d="M625 335L676 303" stroke="#4968D8" stroke-width="18" stroke-linecap="round"/>
+  <path d="M98 518L137 472" stroke="#F278A4" stroke-width="18" stroke-linecap="round"/>
+  <path d="M581 520L625 469" stroke="#F278A4" stroke-width="18" stroke-linecap="round"/>
+  <path d="M144 617L176 584" stroke="#FFE44F" stroke-width="18" stroke-linecap="round"/>
+  <path d="M567 619L598 580" stroke="#7AC458" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="134" cy="420" r="10" fill="#F278A4"/>
+  <circle cx="612" cy="610" r="10" fill="#F278A4"/>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(380 380) rotate(90) scale(380)">
+      <stop stop-color="#DCEAFF"/>
+      <stop offset="1" stop-color="#C0D8FF"/>
+    </radialGradient>
+  </defs>
+</svg>
