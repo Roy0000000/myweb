@@ -1468,88 +1468,343 @@ body.enable-reveal [data-reveal].revealed {
     position: relative;
     top: auto;
   }
-
 }
 
 @media (max-width: 760px) {
+  .pointer-aurora {
+    display: none;
+  }
+
   .topbar {
-    margin-top: 14px;
-    border-radius: 28px;
+    margin-top: 12px;
+    padding: 10px 12px 12px;
+    border-radius: 24px;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 10px;
   }
 
   .nav {
     width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
     justify-content: flex-start;
+    gap: 8px;
+    padding: 2px 2px 6px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav a {
+    flex: 0 0 auto;
+    padding: 8px 12px;
+    font-size: 0.88rem;
+    background: rgba(255, 255, 255, 0.34);
+    border: 1px solid rgba(255, 255, 255, 0.42);
   }
 
   .section {
-    padding-top: 72px;
+    width: min(calc(100% - 20px), var(--max-width));
+    padding-top: 60px;
   }
 
   .hero {
-    padding-top: 26px;
+    gap: 22px;
+    padding-top: 18px;
   }
 
   .hero-metrics,
-  .bookshelf-grid,
   .notes-grid {
     grid-template-columns: 1fr;
   }
 
+  .bookshelf-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(78vw, 1fr);
+    overflow-x: auto;
+    gap: 14px;
+    padding-bottom: 6px;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .bookshelf-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .book-card {
+    scroll-snap-align: start;
+  }
+
   .visual-card {
-    min-height: 500px;
-    padding: 24px;
+    min-height: auto;
+    padding: 16px;
+    border-radius: 28px;
   }
 
   .avatar-stage {
-    min-height: 360px;
+    min-height: auto;
     margin-top: 54px;
   }
 
   .avatar-frame {
-    width: min(100%, 420px);
-    padding: 14px;
+    width: min(100%, 360px);
+    padding: 10px;
+    border-radius: 24px;
   }
 
   .floating-note {
-    max-width: 160px;
-    padding: 14px;
+    max-width: 132px;
+    padding: 10px;
+    border-radius: 16px;
+    font-size: 0.86rem;
+  }
+
+  .floating-note.top {
+    top: 14px;
+    right: 10px;
+  }
+
+  .floating-note.bottom {
+    left: 10px;
+    bottom: 10px;
   }
 
   .book-cover {
-    min-height: 300px;
+    min-height: 280px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 13vw, 4rem);
+    line-height: 1.06;
+  }
+
+  .lead,
+  .section-heading p,
+  .about-story p,
+  .contact-card p {
+    font-size: 0.98rem;
+    line-height: 1.76;
+  }
+
+  .hero-actions,
+  .contact-actions {
+    gap: 10px;
+  }
+
+  .button {
+    width: 100%;
+    min-width: 0;
+    padding: 13px 18px;
+  }
+
+  .hero-metrics {
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .metric-card,
+  .glass-card,
+  .work-card,
+  .archive-card,
+  .note-card {
+    border-radius: 24px;
+  }
+
+  .metric-card,
+  .glass-card {
+    padding: 20px;
+  }
+
+  .section-heading h2,
+  .contact-card h2 {
+    font-size: clamp(1.9rem, 10vw, 2.7rem);
   }
 
   .reader-main {
-    padding: 28px 22px 34px;
+    padding: 24px 18px 30px;
   }
 
   .reader-sidebar {
-    padding: 22px 18px 18px;
+    padding: 18px 16px 16px;
+  }
+
+  .reader-panel {
+    width: min(calc(100% - 12px), 100%);
+    height: min(calc(100dvh - 12px), 100%);
+    margin: 6px auto;
+    border-radius: 26px;
   }
 
   .note-preview-panel {
-    padding: 18px;
+    width: min(calc(100% - 10px), 100%);
+    height: min(calc(100dvh - 10px), 100%);
+    margin: 5px auto;
+    padding: 14px;
+    border-radius: 26px;
   }
 
   .note-preview-topbar {
     flex-direction: column;
     padding-right: 0;
+    gap: 14px;
+  }
+
+  .note-preview-actions {
+    width: 100%;
+  }
+
+  .note-preview-actions .button {
+    flex: 1 1 calc(50% - 5px);
   }
 
   .note-preview-pages {
     grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .notes-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(84vw, 1fr);
+    overflow-x: auto;
+    gap: 14px;
+    padding-bottom: 6px;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .notes-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .note-card {
+    scroll-snap-align: start;
   }
 
   .note-preview-side {
     max-width: none;
-    padding: 18px;
+    padding: 16px;
   }
 
   .note-preview-page img {
     max-height: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand {
+    gap: 10px;
+  }
+
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+  }
+
+  .brand-text {
+    font-size: 0.96rem;
+  }
+
+  .topbar {
+    width: min(calc(100% - 12px), var(--max-width));
+    padding: 10px 12px;
+  }
+
+  .section {
+    width: min(calc(100% - 12px), var(--max-width));
+    padding-top: 52px;
+  }
+
+  .hero {
+    gap: 18px;
+  }
+
+  .hero-copy .eyebrow,
+  .section-heading .eyebrow {
+    font-size: 0.74rem;
+    letter-spacing: 0.1em;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.3rem, 12vw, 3.3rem);
+  }
+
+  .visual-card {
+    padding: 14px;
+  }
+
+  .avatar-stage {
+    margin-top: 60px;
+  }
+
+  .avatar-frame {
+    width: min(100%, 300px);
+    padding: 10px;
+  }
+
+  .floating-note {
+    max-width: 118px;
+    padding: 9px;
+  }
+
+  .floating-note strong {
+    margin-top: 6px;
+    font-size: 0.82rem;
+  }
+
+  .hero-actions,
+  .contact-actions {
+    flex-direction: column;
+  }
+
+  .hero-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .bookshelf-shell,
+  .about-grid {
+    gap: 16px;
+  }
+
+  .book-cover {
+    min-height: 252px;
+    padding: 22px 18px 18px 28px;
+  }
+
+  .book-title {
+    font-size: clamp(1.7rem, 10vw, 2.2rem);
+  }
+
+  .bookshelf-grid {
+    grid-auto-columns: minmax(86vw, 1fr);
+  }
+
+  .notes-grid {
+    grid-auto-columns: minmax(88vw, 1fr);
+  }
+
+  .note-preview-topbar h3 {
+    font-size: clamp(1.5rem, 9vw, 2rem);
+  }
+
+  .note-preview-page {
+    padding: 10px;
+    border-radius: 18px;
+  }
+
+  .modal-close {
+    top: 12px;
+    right: 12px;
+    width: 38px;
+    height: 38px;
   }
 }
 
