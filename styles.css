@@ -1518,28 +1518,9 @@ body.enable-reveal [data-reveal].revealed {
   }
 
   .hero-metrics,
+  .bookshelf-grid,
   .notes-grid {
     grid-template-columns: 1fr;
-  }
-
-  .bookshelf-grid {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(78vw, 1fr);
-    overflow-x: auto;
-    gap: 14px;
-    padding-bottom: 6px;
-    scroll-snap-type: x proximity;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .bookshelf-grid::-webkit-scrollbar {
-    display: none;
-  }
-
-  .book-card {
-    scroll-snap-align: start;
   }
 
   .visual-card {
@@ -1560,29 +1541,16 @@ body.enable-reveal [data-reveal].revealed {
   }
 
   .floating-note {
-    max-width: 132px;
-    padding: 10px;
-    border-radius: 16px;
-    font-size: 0.86rem;
-  }
-
-  .floating-note.top {
-    top: 14px;
-    right: 10px;
-  }
-
-  .floating-note.bottom {
-    left: 10px;
-    bottom: 10px;
+    display: none;
   }
 
   .book-cover {
-    min-height: 280px;
+    min-height: 300px;
   }
 
   .hero h1 {
-    font-size: clamp(2.6rem, 13vw, 4rem);
-    line-height: 1.06;
+    font-size: clamp(2.35rem, 12vw, 3.4rem);
+    line-height: 1.08;
   }
 
   .lead,
@@ -1624,7 +1592,8 @@ body.enable-reveal [data-reveal].revealed {
 
   .section-heading h2,
   .contact-card h2 {
-    font-size: clamp(1.9rem, 10vw, 2.7rem);
+    font-size: clamp(1.7rem, 9vw, 2.35rem);
+    line-height: 1.18;
   }
 
   .reader-main {
@@ -1648,6 +1617,8 @@ body.enable-reveal [data-reveal].revealed {
     margin: 5px auto;
     padding: 14px;
     border-radius: 26px;
+    grid-template-rows: auto minmax(0, 1fr);
+    overflow: hidden;
   }
 
   .note-preview-topbar {
@@ -1664,34 +1635,36 @@ body.enable-reveal [data-reveal].revealed {
     flex: 1 1 calc(50% - 5px);
   }
 
+  .note-preview-body {
+    display: block;
+    overflow: auto;
+    padding-right: 2px;
+  }
+
+  .note-preview-gallery {
+    display: block;
+    min-height: auto;
+  }
+
+  .note-preview-pager {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    margin-bottom: 12px;
+  }
+
   .note-preview-pages {
     grid-template-columns: 1fr;
     gap: 12px;
-  }
-
-  .notes-grid {
-    display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: minmax(84vw, 1fr);
-    overflow-x: auto;
-    gap: 14px;
-    padding-bottom: 6px;
-    scroll-snap-type: x proximity;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-  }
-
-  .notes-grid::-webkit-scrollbar {
-    display: none;
-  }
-
-  .note-card {
-    scroll-snap-align: start;
+    overflow: visible;
+    min-height: auto;
+    padding-right: 0;
   }
 
   .note-preview-side {
     max-width: none;
     padding: 16px;
+    margin-top: 14px;
   }
 
   .note-preview-page img {
@@ -1734,7 +1707,7 @@ body.enable-reveal [data-reveal].revealed {
   }
 
   .hero h1 {
-    font-size: clamp(2.3rem, 12vw, 3.3rem);
+    font-size: clamp(2.1rem, 11vw, 3rem);
   }
 
   .visual-card {
@@ -1748,16 +1721,6 @@ body.enable-reveal [data-reveal].revealed {
   .avatar-frame {
     width: min(100%, 300px);
     padding: 10px;
-  }
-
-  .floating-note {
-    max-width: 118px;
-    padding: 9px;
-  }
-
-  .floating-note strong {
-    margin-top: 6px;
-    font-size: 0.82rem;
   }
 
   .hero-actions,
@@ -1775,20 +1738,12 @@ body.enable-reveal [data-reveal].revealed {
   }
 
   .book-cover {
-    min-height: 252px;
-    padding: 22px 18px 18px 28px;
+    min-height: 248px;
+    padding: 20px 16px 16px 24px;
   }
 
   .book-title {
     font-size: clamp(1.7rem, 10vw, 2.2rem);
-  }
-
-  .bookshelf-grid {
-    grid-auto-columns: minmax(86vw, 1fr);
-  }
-
-  .notes-grid {
-    grid-auto-columns: minmax(88vw, 1fr);
   }
 
   .note-preview-topbar h3 {
