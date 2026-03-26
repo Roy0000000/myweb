@@ -1,180 +1,187 @@
-const featuredWorks = [
-  {
-    title: "云层备忘录",
-    type: "网页项目",
-    year: "2026",
-    summary: "一个适合放个人观察、图文内容与实验排版的轻型网站模板。",
-    detail:
-      "这里可以放你自己做过的网页、课程项目，或者一篇你很喜欢的数字化表达。它更像一个线上展位，而不是单纯的列表页。",
-    tags: ["Web", "Editorial", "Visual"]
-  },
-  {
-    title: "晚风穿过教学楼",
-    type: "校园观察",
-    year: "2026",
-    summary: "把大学生活里的微小感受，整理成可被浏览的叙事作品。",
-    detail:
-      "你可以在这里展示摄影、短文、调研、采访，或者一段你很想留住的校园经验，让作品更有温度和层次。",
-    tags: ["Campus", "Story", "Archive"]
-  },
-  {
-    title: "Blue Margin",
-    type: "视觉实验",
-    year: "2026",
-    summary: "以天空蓝、线条感和留白感为核心的界面练习。",
-    detail:
-      "这一类项目很适合展示你的审美、版式能力和动效感觉。即使不是商业项目，也能很好地体现你的个人风格。",
-    tags: ["Motion", "UI", "Personal"]
-  },
-  {
-    title: "资料分享计划",
-    type: "开放资源",
-    year: "Ongoing",
-    summary: "把笔记、整理文档和学习经验长期开放给学弟学妹。",
-    detail:
-      "这个栏目会让网站不仅好看，而且真正有用。你之后只要持续补充文件，它就会慢慢变成你自己的公开资料库。",
-    tags: ["Sharing", "Notes", "Helpful"]
-  }
-];
-
-const writingArchive = {
-  poetry: [
-    {
-      title: "在风抵达之前",
-      meta: "诗歌 / 片段",
-      excerpt: "在天色变浅之前，我把没说完的话，轻轻放回口袋里。",
-      detail:
-        "在风抵达之前，树影先一步晃动。有人从走廊尽头经过，像一小段未署名的诗。我们把很多心事交给沉默，也把很多愿望交给时间。"
-    },
-    {
-      title: "教室后窗",
-      meta: "诗歌 / 校园",
-      excerpt: "傍晚的光像粉尘一样安静，停在最后一排空着的椅子上。",
-      detail:
-        "教室后窗总能看见更晚一点的天色。风从操场吹过来，带着广播站试音的杂声，也带着今天还来不及命名的情绪。"
-    },
-    {
-      title: "蓝色留白",
-      meta: "诗歌 / 气氛",
-      excerpt: "如果页面也会呼吸，它应该像云一样，把锋利的部分藏起来。",
-      detail:
-        "我想把蓝色写成一种留白。它不是退后，而是一种更轻的表达方式，让人靠近时才看见里面的层次和温度。"
-    }
-  ],
-  fiction: [
-    {
-      title: "玻璃雨季",
-      meta: "短篇小说 / 简介",
-      excerpt: "她在每一场突如其来的雨里，都记起那栋教学楼的楼梯转角。",
-      detail:
-        "故事围绕一个迟迟没能说出口的告别展开。人物在熟悉的校园空间里反复经过彼此，也反复错过真正的时机。"
-    },
-    {
-      title: "岛上的打印店",
-      meta: "短篇小说 / 简介",
-      excerpt: "那家打印店总在最晚的时候亮着灯，像替所有没交完的作业守夜。",
-      detail:
-        "一间校园打印店连接着许多人的大学片段。小说会通过不同顾客的经历，把成长、拖延、友情和独处串在一起。"
-    }
-  ]
-};
+function buildPreviewPages(prefix, count) {
+  return Array.from({ length: count }, (_, index) => {
+    const page = String(index + 1).padStart(2, "0");
+    return `${prefix}/page-${page}.png`;
+  });
+}
 
 const notesLibrary = [
   {
-    title: "高等数学整理笔记",
+    title: "微积分笔记",
     category: "数学",
-    description: "适合考前复习，包含极限、导数、积分的基础梳理。",
-    file: "downloads/calculus-notes.md",
-    meta: ["Markdown", "可继续补充"]
+    description: "站内先展出前 16 页，方便你先翻看结构与书写风格，再决定是否完整下载。",
+    meta: ["预览 16 页", "微积分", "百度网盘"],
+    shareLink: "https://pan.baidu.com/s/5iq-1MW8-DuYEoCSGssMv_Q",
+    qrImage: "assets/baidu-notes-qr.jpg",
+    previewCount: 16,
+    sideTitle: "微积分完整笔记",
+    sideCopy:
+      "完整版本存放在百度网盘里。这里先展出前 16 页，供你判断内容密度、排版习惯与是否适合保存到自己的资料夹。",
+    previewPages: buildPreviewPages("assets/note-previews/calculus", 16)
   },
   {
-    title: "设计史课堂笔记",
-    category: "设计",
-    description: "把重点流派、代表人物和时间线整理成更易查找的结构。",
-    file: "downloads/design-history-notes.md",
-    meta: ["结构清晰", "适合速查"]
-  },
-  {
-    title: "写作方法课笔记",
-    category: "写作",
-    description: "记录课堂里的文本拆解方法和章节组织技巧。",
-    file: "downloads/writing-workshop-notes.md",
-    meta: ["创作向", "适合练习"]
+    title: "线性代数笔记",
+    category: "数学",
+    description: "先开放 16 页站内预览，把整体结构、重点整理方式和笔记气质直接展示出来。",
+    meta: ["预览 16 页", "线性代数", "百度网盘"],
+    shareLink: "https://pan.baidu.com/s/5iq-1MW8-DuYEoCSGssMv_Q",
+    qrImage: "assets/baidu-notes-qr.jpg",
+    previewCount: 16,
+    sideTitle: "线性代数完整笔记",
+    sideCopy:
+      "站内这部分像是资料馆里的样张，完整版本则放在百度网盘。若你觉得这一套整理方式适合自己，可以直接扫码或打开链接带走。",
+    previewPages: buildPreviewPages("assets/note-previews/linear-algebra", 16)
   }
 ];
 
-const worksGrid = document.querySelector("#worksGrid");
-const archiveGrid = document.querySelector("#archiveGrid");
+const libraryShelf = window.libraryShelf || [];
+
+const bookshelfGrid = document.querySelector("#bookshelfGrid");
 const notesGrid = document.querySelector("#notesGrid");
-const spotlightTitle = document.querySelector("#spotlightTitle");
-const spotlightDescription = document.querySelector("#spotlightDescription");
-const spotlightTags = document.querySelector("#spotlightTags");
 const modal = document.querySelector("#detailModal");
 const modalTitle = document.querySelector("#modalTitle");
 const modalBody = document.querySelector("#modalBody");
 const modalMeta = document.querySelector("#modalMeta");
-const tabButtons = document.querySelectorAll(".tab-button");
+const readerModal = document.querySelector("#readerModal");
+const readerCover = document.querySelector("#readerCover");
+const readerBookMeta = document.querySelector("#readerBookMeta");
+const readerBookTitle = document.querySelector("#readerBookTitle");
+const readerBookDescription = document.querySelector("#readerBookDescription");
+const readerToc = document.querySelector("#readerToc");
+const readerPieceMeta = document.querySelector("#readerPieceMeta");
+const readerPieceTitle = document.querySelector("#readerPieceTitle");
+const readerMain = document.querySelector(".reader-main");
+const readerContent = document.querySelector("#readerContent");
+const notePreviewModal = document.querySelector("#notePreviewModal");
+const notePreviewTitle = document.querySelector("#notePreviewTitle");
+const notePreviewMeta = document.querySelector("#notePreviewMeta");
+const notePreviewOpen = document.querySelector("#notePreviewOpen");
+const notePreviewDownload = document.querySelector("#notePreviewDownload");
+const notePreviewPager = document.querySelector("#notePreviewPager");
+const notePreviewPages = document.querySelector("#notePreviewPages");
+const notePreviewQr = document.querySelector("#notePreviewQr");
+const notePreviewSideTitle = document.querySelector("#notePreviewSideTitle");
+const notePreviewSideCopy = document.querySelector("#notePreviewSideCopy");
 const progressBar = document.querySelector(".progress-bar");
 const pointerAurora = document.querySelector(".pointer-aurora");
 const navLinks = document.querySelectorAll(".nav a");
+const overlayTimers = new WeakMap();
+const OVERLAY_TRANSITION_MS = 520;
 
-let activeArchiveTab = "poetry";
+let activeBookId = null;
+let notePreviewObserver = null;
 
-function renderWorks() {
-  featuredWorks.forEach((work, index) => {
+function showOverlay(element) {
+  if (!element) {
+    return;
+  }
+
+  const timer = overlayTimers.get(element);
+  if (timer) {
+    window.clearTimeout(timer);
+    overlayTimers.delete(element);
+  }
+
+  element.hidden = false;
+  element.classList.remove("is-closing");
+  element.getBoundingClientRect();
+  element.classList.add("is-open");
+}
+
+function hideOverlay(element, onHidden) {
+  if (!element || element.hidden) {
+    if (onHidden) {
+      onHidden();
+    }
+    return;
+  }
+
+  const timer = overlayTimers.get(element);
+  if (timer) {
+    window.clearTimeout(timer);
+  }
+
+  element.classList.remove("is-open");
+  element.classList.add("is-closing");
+
+  const timeoutId = window.setTimeout(() => {
+    element.hidden = true;
+    element.classList.remove("is-closing");
+    overlayTimers.delete(element);
+    if (onHidden) {
+      onHidden();
+    }
+    setOverlayLock();
+  }, OVERLAY_TRANSITION_MS);
+
+  overlayTimers.set(element, timeoutId);
+}
+
+function setOverlayLock() {
+  const hasOpenOverlay = !modal.hidden || !readerModal.hidden || !notePreviewModal.hidden;
+  document.body.style.overflow = hasOpenOverlay ? "hidden" : "";
+}
+
+function renderBookshelf() {
+  if (!bookshelfGrid) {
+    return;
+  }
+
+  bookshelfGrid.innerHTML = "";
+  libraryShelf.forEach((book) => {
     const card = document.createElement("article");
-    card.className = "work-card";
-    card.setAttribute("data-reveal", "");
+    card.className = "book-card";
+    card.dataset.tone = book.tone;
+    card.classList.add("revealed");
+
     card.innerHTML = `
-      <div class="work-topline">
-        <span>${work.type}</span>
-        <span>${work.year}</span>
+      <div class="book-cover">
+        <span class="book-mark">${book.type}</span>
+        <h3 class="book-title">${book.title}</h3>
+        <p class="book-subtitle">${book.subtitle.replace(/\n/g, "<br>")}</p>
+        <span class="book-spine">${book.title[0]}</span>
       </div>
-      <h3>${work.title}</h3>
-      <p>${work.summary}</p>
+      <div class="book-meta">
+        <span>${book.meta}</span>
+        <span>${book.pieces.length} 篇</span>
+      </div>
+      <p class="book-summary">${book.summary}</p>
+      <div class="book-actions">
+        <button class="book-link" type="button">打开目录</button>
+      </div>
     `;
 
-    const activateSpotlight = () => {
-      spotlightTitle.textContent = work.title;
-      spotlightDescription.textContent = work.detail;
-      spotlightTags.innerHTML = work.tags.map((tag) => `<span>${tag}</span>`).join("");
-    };
+    const launchReader = () => triggerBookOpen(card, book.id);
+    card.querySelector(".book-link").addEventListener("click", launchReader);
+    card.querySelector(".book-cover").addEventListener("click", launchReader);
 
-    card.addEventListener("mouseenter", activateSpotlight);
-    card.addEventListener("focusin", activateSpotlight);
-    card.addEventListener("click", () => openModal(work.title, work.detail, `${work.type} · ${work.year}`));
-
-    if (index === 0) {
-      activateSpotlight();
-    }
-
-    worksGrid.appendChild(card);
+    bookshelfGrid.appendChild(card);
   });
 }
 
-function renderArchive(tab) {
-  archiveGrid.innerHTML = "";
-  writingArchive[tab].forEach((item) => {
-    const card = document.createElement("article");
-    card.className = "archive-card";
-    card.setAttribute("data-reveal", "");
-    card.innerHTML = `
-      <div class="archive-topline">
-        <span>${item.meta}</span>
-      </div>
-      <h3>${item.title}</h3>
-      <p>${item.excerpt}</p>
-    `;
-    card.addEventListener("click", () => openModal(item.title, item.detail, item.meta));
-    archiveGrid.appendChild(card);
-  });
+function triggerBookOpen(card, bookId) {
+  if (!card) {
+    openReader(bookId, 0);
+    return;
+  }
+
+  card.classList.add("is-pressing");
+  window.setTimeout(() => {
+    card.classList.remove("is-pressing");
+    openReader(bookId, 0);
+  }, 120);
 }
 
 function renderNotes() {
+  if (!notesGrid) {
+    return;
+  }
+
+  notesGrid.innerHTML = "";
   notesLibrary.forEach((note) => {
     const card = document.createElement("article");
     card.className = "note-card";
-    card.setAttribute("data-reveal", "");
+    card.classList.add("revealed");
     card.innerHTML = `
       <div class="note-topline">
         <span>${note.category}</span>
@@ -182,38 +189,328 @@ function renderNotes() {
       <h3>${note.title}</h3>
       <p>${note.description}</p>
       <div class="note-meta">${note.meta.map((item) => `<span>${item}</span>`).join("")}</div>
-      <a class="button secondary" href="${note.file}" download>免费下载</a>
+      <div class="note-card-actions">
+        <button class="button secondary note-preview-button" type="button">查看 16 页预览</button>
+        <a class="button primary" href="${note.shareLink}" target="_blank" rel="noreferrer">网盘下载</a>
+      </div>
     `;
+    card
+      .querySelector(".note-preview-button")
+      .addEventListener("click", () => openNotePreview(note));
     notesGrid.appendChild(card);
   });
+}
+
+function renderPieceContent(piece) {
+  readerContent.innerHTML = "";
+
+  if (piece.layout === "poem") {
+    const wrapper = document.createElement("div");
+    wrapper.className = "reader-poem";
+
+    piece.body
+      .trim()
+      .split(/\n\s*\n/g)
+      .forEach((stanza) => {
+        const paragraph = document.createElement("p");
+        const lines = stanza.split("\n").map((line) => line.trim()).filter(Boolean);
+
+        if (lines.length > 0 && lines.every(isPoemMetaLine)) {
+          paragraph.classList.add("is-meta");
+        }
+
+        lines.forEach((line, index) => {
+          if (index > 0) {
+            paragraph.appendChild(document.createElement("br"));
+          }
+          paragraph.append(line);
+        });
+
+        wrapper.appendChild(paragraph);
+      });
+
+    readerContent.appendChild(wrapper);
+    return;
+  }
+
+  piece.body
+    .trim()
+    .split(/\n\s*\n/g)
+    .forEach((block) => {
+      const paragraph = document.createElement("p");
+      paragraph.textContent = block;
+      readerContent.appendChild(paragraph);
+    });
+}
+
+function renderReader(bookId, pieceIndex) {
+  const book = libraryShelf.find((entry) => entry.id === bookId);
+  if (!book || !book.pieces || book.pieces.length === 0) {
+    return;
+  }
+
+  const piece = book.pieces[pieceIndex];
+  activeBookId = bookId;
+
+  readerCover.style.setProperty("--reader-a", getToneColors(book.tone).a);
+  readerCover.style.setProperty("--reader-b", getToneColors(book.tone).b);
+  readerBookMeta.textContent = `${book.type} / ${book.meta}`;
+  readerBookTitle.textContent = book.title;
+  readerBookDescription.textContent = book.readerDescription;
+
+  readerPieceMeta.textContent = `${book.title} / ${pieceIndex + 1} of ${book.pieces.length}`;
+  readerPieceTitle.textContent = piece.title;
+  readerPieceTitle.classList.toggle("is-poem-title", piece.layout === "poem");
+  readerPieceMeta.classList.toggle("is-poem-meta", piece.layout === "poem");
+  readerMain.classList.toggle("is-poem", piece.layout === "poem");
+
+  readerToc.innerHTML = "";
+  book.pieces.forEach((entry, index) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = entry.title;
+    button.classList.toggle("is-active", index === pieceIndex);
+    button.addEventListener("click", () => renderReader(bookId, index));
+    readerToc.appendChild(button);
+  });
+
+  renderPieceContent(piece);
+  readerMain.classList.remove("piece-enter");
+  readerMain.getBoundingClientRect();
+  readerMain.classList.add("piece-enter");
+  readerMain.scrollTop = 0;
+}
+
+function isPoemMetaLine(line) {
+  return (
+    line.startsWith("——") ||
+    line.startsWith("作于") ||
+    /^\d{4}[.\-\/年]/.test(line) ||
+    /^\d{4}\.\d{1,2}\.\d{1,2}/.test(line)
+  );
+}
+
+function normalizeSourceText(text) {
+  return text
+    .replace(/\r/g, "")
+    .replace(/[\u2028\u2029]/g, "\n")
+    .replace(/\u00a0/g, " ")
+    .replace(/^[ \t]*•[ \t]*/gm, "")
+    .replace(/[ \t]+$/gm, "")
+    .replace(/\n{3,}/g, "\n\n");
+}
+
+function parseNovelSource(text) {
+  const normalized = normalizeSourceText(text);
+  const lines = normalized.split("\n").map((line) => line.trim());
+  const pieces = [];
+  let currentTitle = null;
+  let buffer = [];
+  let reachedDirectory = false;
+
+  const flush = () => {
+    if (!currentTitle) {
+      return;
+    }
+
+    const content = buffer.filter(Boolean).join("\n\n").trim();
+    pieces.push({
+      title: currentTitle,
+      layout: "prose",
+      body: content
+    });
+    buffer = [];
+  };
+
+  lines.forEach((line) => {
+    if (!line) {
+      return;
+    }
+
+    if (!reachedDirectory) {
+      if (line === "目录") {
+        reachedDirectory = true;
+        currentTitle = "目录";
+      }
+      return;
+    }
+
+    if (/^第[一二三四五六七八九十百零]+话/.test(line) && !line.includes("··")) {
+      flush();
+      currentTitle = line;
+      return;
+    }
+
+    if (line === "目录") {
+      flush();
+      currentTitle = "目录";
+      return;
+    }
+
+    if (currentTitle === "目录") {
+      buffer.push(line.replace(/·+\d+$/, "").trim());
+      return;
+    }
+
+    buffer.push(line);
+  });
+
+  flush();
+
+  return pieces.filter((piece) => piece.title !== "作者介绍" && piece.body);
+}
+
+async function loadDynamicLibraryContent() {
+  const sourceBooks = libraryShelf.filter((book) => book.sourcePath);
+
+  await Promise.all(
+    sourceBooks.map(async (book) => {
+      try {
+        const response = await fetch(book.sourcePath);
+        if (!response.ok) {
+          return;
+        }
+
+        const text = await response.text();
+        if (book.id === "mountain") {
+          book.pieces = parseNovelSource(text);
+          const chapterCount = book.pieces.filter((piece) => piece.title !== "目录").length;
+          book.meta = `${chapterCount} 章`;
+        }
+      } catch (error) {
+        console.error(`Failed to load ${book.title}`, error);
+      }
+    })
+  );
+}
+
+function getToneColors(tone) {
+  const palette = {
+    xifeng: { a: "#5479bc", b: "#93b3e7" },
+    moonlight: { a: "#7084b6", b: "#c1c7ef" },
+    mountain: { a: "#607489", b: "#b2c0cd" }
+  };
+
+  return palette[tone] || palette.xifeng;
 }
 
 function openModal(title, body, meta) {
   modalTitle.textContent = title;
   modalBody.textContent = body;
   modalMeta.textContent = meta;
-  modal.hidden = false;
-  document.body.style.overflow = "hidden";
+  showOverlay(modal);
+  setOverlayLock();
 }
 
 function closeModal() {
-  modal.hidden = true;
-  document.body.style.overflow = "";
+  hideOverlay(modal);
 }
 
-function setupTabs() {
-  tabButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      activeArchiveTab = button.dataset.tab;
-      tabButtons.forEach((item) => item.classList.toggle("active", item === button));
-      renderArchive(activeArchiveTab);
-      setupReveal();
+function openReader(bookId, pieceIndex) {
+  renderReader(bookId, pieceIndex);
+  showOverlay(readerModal);
+  setOverlayLock();
+}
+
+function closeReader() {
+  hideOverlay(readerModal);
+}
+
+function openNotePreview(note) {
+  notePreviewTitle.textContent = note.title;
+  notePreviewMeta.textContent = `${note.category} / ${note.meta.join(" / ")}`;
+  notePreviewOpen.href = note.shareLink;
+  notePreviewDownload.href = note.shareLink;
+  notePreviewPager.innerHTML = "";
+  notePreviewPages.innerHTML = "";
+  notePreviewPager.scrollLeft = 0;
+  notePreviewPages.scrollTop = 0;
+  notePreviewSideTitle.textContent = note.sideTitle;
+  notePreviewSideCopy.textContent = note.sideCopy;
+
+  if (notePreviewObserver) {
+    notePreviewObserver.disconnect();
+    notePreviewObserver = null;
+  }
+
+  note.previewPages.forEach((page, index) => {
+    const figure = document.createElement("figure");
+    figure.className = "note-preview-page";
+    figure.id = `note-preview-page-${index + 1}`;
+    figure.dataset.page = String(index + 1);
+    figure.innerHTML = `
+      <img src="${page}" alt="${note.title} 第 ${index + 1} 页预览" loading="lazy" />
+      <figcaption>Preview ${index + 1}</figcaption>
+    `;
+    notePreviewPages.appendChild(figure);
+
+    const pagerButton = document.createElement("button");
+    pagerButton.type = "button";
+    pagerButton.className = "note-preview-page-button";
+    pagerButton.textContent = String(index + 1).padStart(2, "0");
+    pagerButton.addEventListener("click", () => {
+      figure.scrollIntoView({ behavior: "smooth", block: "start" });
     });
+    notePreviewPager.appendChild(pagerButton);
+  });
+
+  notePreviewQr.src = note.qrImage;
+  notePreviewQr.alt = `${note.title} 下载二维码`;
+
+  const pagerButtons = [...notePreviewPager.querySelectorAll(".note-preview-page-button")];
+  const figures = [...notePreviewPages.querySelectorAll(".note-preview-page")];
+
+  const setActivePreviewPage = (pageNumber) => {
+    pagerButtons.forEach((button, index) => {
+      button.classList.toggle("is-active", index + 1 === pageNumber);
+    });
+
+    figures.forEach((figure, index) => {
+      figure.classList.toggle("is-active", index + 1 === pageNumber);
+    });
+  };
+
+  setActivePreviewPage(1);
+
+  notePreviewObserver = new IntersectionObserver(
+    (entries) => {
+      const activeEntry = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (!activeEntry) {
+        return;
+      }
+
+      setActivePreviewPage(Number(activeEntry.target.dataset.page));
+    },
+    {
+      root: notePreviewPages,
+      threshold: [0.35, 0.6, 0.85]
+    }
+  );
+
+  figures.forEach((figure) => notePreviewObserver.observe(figure));
+
+  showOverlay(notePreviewModal);
+  setOverlayLock();
+}
+
+function closeNotePreview() {
+  hideOverlay(notePreviewModal, () => {
+    if (notePreviewObserver) {
+      notePreviewObserver.disconnect();
+      notePreviewObserver = null;
+    }
   });
 }
 
 function setupReveal() {
   const revealables = document.querySelectorAll("[data-reveal]");
+  if (revealables.length === 0) {
+    return;
+  }
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -244,13 +541,48 @@ function setupScrollProgress() {
 }
 
 function setupPointerAurora() {
+  if (!pointerAurora) {
+    return;
+  }
+
+  const state = {
+    currentX: window.innerWidth * 0.5,
+    currentY: window.innerHeight * 0.22,
+    targetX: window.innerWidth * 0.5,
+    targetY: window.innerHeight * 0.22
+  };
+
+  let rafId = 0;
+
+  const render = () => {
+    state.currentX += (state.targetX - state.currentX) * 0.12;
+    state.currentY += (state.targetY - state.currentY) * 0.12;
+
+    pointerAurora.style.transform = `translate3d(${state.currentX}px, ${state.currentY}px, 0)`;
+    rafId = window.requestAnimationFrame(render);
+  };
+
   window.addEventListener(
     "pointermove",
     (event) => {
-      pointerAurora.style.transform = `translate(${event.clientX}px, ${event.clientY}px)`;
+      state.targetX = event.clientX;
+      state.targetY = event.clientY;
     },
     { passive: true }
   );
+
+  window.addEventListener(
+    "pointerleave",
+    () => {
+      state.targetX = window.innerWidth * 0.5;
+      state.targetY = window.innerHeight * 0.22;
+    },
+    { passive: true }
+  );
+
+  if (!rafId) {
+    rafId = window.requestAnimationFrame(render);
+  }
 }
 
 function setupSectionSpy() {
@@ -277,31 +609,69 @@ function setupSectionSpy() {
   sections.forEach((section) => observer.observe(section));
 }
 
-function setupModalControls() {
+function setupOverlayControls() {
   modal.addEventListener("click", (event) => {
     if (event.target.hasAttribute("data-close-modal")) {
       closeModal();
     }
   });
 
+  readerModal.addEventListener("click", (event) => {
+    if (event.target.hasAttribute("data-close-reader")) {
+      closeReader();
+    }
+  });
+
+  notePreviewModal.addEventListener("click", (event) => {
+    if (event.target.hasAttribute("data-close-note-preview")) {
+      closeNotePreview();
+    }
+  });
+
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && !modal.hidden) {
+    if (event.key !== "Escape") {
+      return;
+    }
+
+    if (!notePreviewModal.hidden) {
+      closeNotePreview();
+      return;
+    }
+
+    if (!readerModal.hidden) {
+      closeReader();
+      return;
+    }
+
+    if (!modal.hidden) {
       closeModal();
     }
   });
 }
 
 function setYear() {
-  document.querySelector("#year").textContent = new Date().getFullYear();
+  const yearNode = document.querySelector("#year");
+  if (yearNode) {
+    yearNode.textContent = new Date().getFullYear();
+  }
 }
 
-renderWorks();
-renderArchive(activeArchiveTab);
-renderNotes();
-setupTabs();
-setupReveal();
-setupScrollProgress();
-setupPointerAurora();
-setupSectionSpy();
-setupModalControls();
-setYear();
+async function init() {
+  try {
+    await loadDynamicLibraryContent();
+  } catch (error) {
+    console.error("Failed to initialize dynamic library content", error);
+  }
+
+  renderBookshelf();
+  renderNotes();
+  document.body.classList.add("enable-reveal");
+  setupReveal();
+  setupScrollProgress();
+  setupPointerAurora();
+  setupSectionSpy();
+  setupOverlayControls();
+  setYear();
+}
+
+init();
